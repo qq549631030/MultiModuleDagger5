@@ -1,12 +1,13 @@
 package cn.hx.user
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class UserViewModel @ViewModelInject constructor(
-    @Assisted private val savedStateHandle: SavedStateHandle,
+@HiltViewModel
+class UserViewModel @Inject constructor(
+    private val savedStateHandle: SavedStateHandle,
     val set: Set<String>
 ) : ViewModel() {
 
