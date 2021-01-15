@@ -1,20 +1,24 @@
 package cn.hx.multimoduledagger
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import cn.hx.multimoduledagger.databinding.ActivityMainBinding
 import cn.hx.news.NewsActivity
 import cn.hx.user.UserActivity
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        btn_user.setOnClickListener {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnUser.setOnClickListener {
             startActivity(Intent(this, UserActivity::class.java))
         }
-        btn_news.setOnClickListener {
+        binding.btnNews.setOnClickListener {
             startActivity(Intent(this, NewsActivity::class.java))
         }
     }
